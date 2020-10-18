@@ -21,7 +21,7 @@ export class FormComponent implements OnInit {
                                                               feedback:data.feedback,
                                                               email:data.email,
                                                               comment:data.comment}); 
-    }  
+ }  
   ngOnInit(){
   }
 

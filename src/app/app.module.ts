@@ -6,7 +6,7 @@ import { HeaderComponent } from './header/header.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule} from '@angular/common/http';
 import {ServerService} from './server.service';
-
+import { MatToolbarModule } from '@angular/material/toolbar';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +17,8 @@ import {ServerService} from './server.service';
     BrowserModule,//no idea
     AppRoutingModule,//routing option
     ReactiveFormsModule,//for creating form
-    HttpClientModule//for http requests
+    HttpClientModule,//for http requests
+    MatToolbarModule
   ],
   providers: [ServerService],//to enable get service from the url
   bootstrap: [AppComponent]
