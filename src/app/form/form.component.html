@@ -1,9 +1,13 @@
 <div class="container-fluid">
     <h2>Review Form</h2>
-    <form [formGroup]="reviewForm">
+    <div >
+      <h2 class="alert alert-danger" *ngIf="errorMsg">{{errorMsg}}</h2>
+      <h2 class="col-ml" *ngIf="successMsg && !errorMsg">{{successMsg}}</h2>
+    </div>
+    <form [formGroup]="reviewForm" (ngSubmit)="SubmitData()">
           <div class="form-group">
             <label >Name</label>
-            <input formControlName="name" type="text" class="form-control" value="for">
+            <input formControlName="name" type="text" class="form-control" >
           </div>
 
           <div class="form-group">
@@ -12,20 +16,22 @@
           </div>
           
           <div class="form-group">
-            <label >Feedback</label>
-              <input type="radio" id="great" name="answer" value="Great">
+            <label >Feedback</label><br>
+              <input formControlName="feedback" type="radio" id="great"  value="Great">
             <label for="great">Great</label>
-              <input type="radio" id="ok" name="answer" value="Okay">
+              <input formControlName="feedback" type="radio" id="ok"  value="Okay">
             <label for="ok">Okay</label>
-              <input type="radio" id="ngood" name="answer" value="not good">
+              <input formControlName="feedback" type="radio" id="ngood"  value="not good">
             <label for="ngood">Not good</label>
           </div>
           
           <div class="form-group">
-            <label >Comments</label>
+            <label >Comments</label><br>
             <textarea formControlName="comment" rows="4" cols="50"></textarea>
-        </div>         
+        </div>   
+        <button  type="Submit" class="btn btn-primary">Submit</button>
+      
     </form>
     <button (click)="loadApi()">LoadApi</button>
-    <button (click)="SubmitData()" type="Submit" class="btn btn-primary">Submit</button>
+    <p>{{reviewForm.value|json}}</p>
 </div>
